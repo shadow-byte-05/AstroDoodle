@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Canvas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+        <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
+    <!-- Starry background -->
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+
+    <!-- Top Right Action Icons -->
+    <div class="top-right-icons glass-ui">
+        <button class="icon-btn"><i class="fas fa-user"></i></button>
+    </div>
+
+    <!-- Main Drawing Canvas -->
+    <canvas id="drawing-canvas"></canvas>
+
+    <!-- Bottom Controls -->
+    <div class="bottom-controls glass-ui">
+        <!-- Tool Selection -->
+        <div class="tool-group">
+            <button class="tool-btn active" data-tool="brush" title="Comet Brush"><i class="fas fa-paint-brush"></i></button>
+            <button class="tool-btn" data-tool="circle" title="Planet"><i class="far fa-circle"></i></button>
+            <button class="tool-btn" data-tool="rectangle" title="Asteroid Field"><i class="far fa-square"></i></button>
+            <button class="tool-btn" data-tool="triangle" title="Starship"><i class="fas fa-caret-up"></i></button>
+            <button class="tool-btn" data-tool="eraser" title="Black Hole Eraser"><i class="fas fa-eraser"></i></button>
+        </div>
+
+        <div class="separator"></div>
+
+        <!-- Color Palette -->
+        <div class="tool-group color-palette">
+            <div class="color-swatch" data-color="#ff79c6" style="background-color: #ff79c6;"></div>
+            <div class="color-swatch" data-color="#8be9fd" style="background-color: #8be9fd;"></div>
+            <div class="color-swatch selected" data-color="#50fa7b" style="background-color: #50fa7b;"></div>
+            <div class="color-swatch" data-color="#f1fa8c" style="background-color: #f1fa8c;"></div>
+            <div class="color-swatch" data-color="#bd93f9" style="background-color: #bd93f9;"></div>
+            <div class="color-swatch" data-color="#ffb86c" style="background-color: #ffb86c;"></div>
+        </div>
+
+        <div class="separator"></div>
+        
+        <!-- Physics and Actions -->
+        <div class="tool-group">
+            <label for="velocity-slider">Velocity</label>
+            <input id="velocity-slider" type="range" min="0.5" max="5" value="1" step="0.1" class="slider">
+            <span id="velocity-value">1.0</span>
+        </div>
+        
+        <div class="tool-group">
+            <label for="size-slider">Size</label>
+            <input id="size-slider" type="range" min="2" max="20" value="5" class="slider">
+        </div>
+
+        <button id="clear-canvas" class="action-btn" title="Clear Canvas"><i class="fas fa-trash"></i> Clear</button>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
